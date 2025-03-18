@@ -1,13 +1,20 @@
-import { View, StyleSheet, Button } from 'react-native';
+import React    from 'react';
+import { View, StyleSheet, Button,TextInput } from 'react-native';
 
 
 export default function HomeScreen() {
+  const [text,onChangeText] =React.useState('Enter URL');
   return (
    <View style = {styles.containerColumn}>
     <View style = {styles.containerRow}>
+      <TextInput 
+        style = {styles.input}
+        onChangeText={onChangeText}
+        value={text}
+      />
       <Button
         title = "Click me"
-        onPress={()=> alert("stop pressing my button")}
+        onPress={()=> alert("stop pressing my button" + text)}
        >
   
       </Button>
@@ -26,5 +33,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  input: {
+    justifyContent: 'center',
+
+  }
 
 });
